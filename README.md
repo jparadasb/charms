@@ -74,7 +74,7 @@ npm install --location=global @jparadasb/charms
 
 ### Fidelius Charm (encrypt)
 
-Imagine you have all your secrests or env files ignored in your project
+Imagine you have all your secrets or env files ignored in your project
 
 ![ignored env files](https://user-images.githubusercontent.com/5114020/206108353-43781239-b40a-4da2-8bea-a72216fbafa6.png)
 
