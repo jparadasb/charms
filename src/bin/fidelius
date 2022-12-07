@@ -7,7 +7,7 @@ NC='\033[0m'
 CYAN='\033[0;36m'
 
 FORCE=false
-PATTERN="*.env"
+PATTERN='*.env'
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -36,7 +36,7 @@ done
 
 function encryptDirectorySecrets () {
     echo -e "${CYAN}Signing with keybase under the name of:${RED} $COMMAND ${NC}"
-    for FILE in $(find . -name $1); do
+    for FILE in $(find . -name "$1"); do
         CMD="keybase encrypt $COMMAND -i ${FILE} -o ${FILE}.encrypted"
         if ! [[ -f "$FILE.encrypted" ]] || [ "$2" == true ]; then
             $CMD
@@ -54,7 +54,7 @@ then
 fi
 
 if ! command -v keybase &> /dev/null
-    encryptDirectorySecrets $PATTERN ${FORCE}
+    encryptDirectorySecrets "$PATTERN" ${FORCE}
     exit 0;
 then
     echo -e "${RED}ERROR: ${NC}keybase could not be found"
