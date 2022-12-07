@@ -18,7 +18,7 @@ Small scripts for small and repetitive tasks
     <a href="">
       <img alt="MIT Licensed" src="https://img.shields.io/npm/l/@nrwl/workspace.svg?style=flat" />
     </a>
-    <a href="https://www.npmjs.com/package/@jparadasb/charmsa">
+    <a href="https://www.npmjs.com/package/@jparadasb/charms">
       <img alt="NPM Status" src="https://img.shields.io/npm/v/@jparadasb/charms.svg?style=flat" />
     </a>
 </p>
