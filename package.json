@@ -1,0 +1,33 @@
+{
+  "name": "@jparadasb/charms",
+  "version": "1.0.0",
+  "description": "A Small set of scripts to make some repetitive tasks easier",
+  "main": "/src/index.js",
+  "bin": {
+    "fidelius": "src/bin/fidelius",
+    "revelio": "src/bin/revelio"
+  },
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jparadasb/charms.git"
+  },
+  "keywords": [
+    "encrypt",
+    "decrypt",
+    "keybase",
+    "fidelius",
+    "revelio"
+  ],
+  "author": "@jparadasb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jparadasb/charms/issues"
+  },
+  "homepage": "https://github.com/jparadasb/charms#readme",
+  "devDependencies": {
+    "standard-version": "^9.5.0"
+  }
+}

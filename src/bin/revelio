@@ -1,0 +1,46 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+DONE_COLOR='\033[1;32m'
+BROWN='\033[0;33m'
+NC='\033[0m'
+CYAN='\033[0;36m'
+
+PATTERN="*.encrypted"
+FORCE=false
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -a|--force)
+      FORCE=true
+      echo -e "${BROWN}FORCED MODE${NC}"
+      shift
+      ;;
+    -b|--pattern)
+      PATTERN="$2"
+      shift
+      shift
+      ;;
+  esac
+done
+
+function decryptDirectorySecrets () {
+    for FILE in $(find . -name $2); do
+        FILE_NAME=$(echo $FILE | sed s/".encrypted"//)
+        CMD="keybase decrypt -i ${FILE} -o ${FILE_NAME}"
+        if ! [[ -f "$FILE_NAME" ]] || [ "$1" == true ]; then
+            $CMD
+            echo -e "${DONE_COLOR}DONE:${NC} ${FILE} ${CYAN}-->${NC} ${FILE_NAME}";
+        else
+            echo -e "${BROWN}SKIP:${NC} ${FILE}";
+        fi
+    done
+}
+
+if ! command -v keybase &> /dev/null
+    decryptDirectorySecrets $FORCE $PATTERN
+    exit
+then
+    echo "keybase could not be found"
+    exit
+fi

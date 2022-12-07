@@ -1,0 +1,62 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+DONE_COLOR='\033[1;32m'
+BROWN='\033[0;33m'
+NC='\033[0m'
+CYAN='\033[0;36m'
+
+FORCE=false
+PATTERN="*.env"
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -a|--force)
+      FORCE=true
+      echo -e "${BROWN}FORCED MODE${NC}"
+      shift
+      ;;
+    -b|--pattern)
+      PATTERN="$2"
+      shift
+      shift
+      ;;
+    -c|--team)
+      COMMAND="--team $2"
+      shift
+      shift
+      ;;
+    -d|--user)
+      COMMAND="$2"
+      shift
+      shift
+      ;;
+  esac
+done
+
+function encryptDirectorySecrets () {
+    echo -e "${CYAN}Signing with keybase under the name of:${RED} $COMMAND ${NC}"
+    for FILE in $(find . -name $1); do
+        CMD="keybase encrypt $COMMAND -i ${FILE} -o ${FILE}.encrypted"
+        if ! [[ -f "$FILE.encrypted" ]] || [ "$2" == true ]; then
+            $CMD
+            echo -e "${DONE_COLOR}DONE:${NC} ${FILE} ${CYAN}-->${NC} ${FILE}.encrypted";
+        else
+            echo -e "${BROWN}SKIP:${NC} ${FILE}"
+        fi
+    done
+}
+
+if [ -z "$COMMAND" ]
+then
+    echo -e "${RED}ERROR: ${NC}--team or --user options are mandatory"
+    exit 1;
+fi
+
+if ! command -v keybase &> /dev/null
+    encryptDirectorySecrets $PATTERN ${FORCE}
+    exit 0;
+then
+    echo -e "${RED}ERROR: ${NC}keybase could not be found"
+    exit 1;
+fi
