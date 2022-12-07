@@ -102,7 +102,7 @@ Now you will see the encrypted files which you are secure to commit.
 
 ### Revelio Charm (decrypt)
 
-Assuming you are cloning the repository, you are including in the keybase team and you want to decrypt the secrets files, run:
+Assuming you are cloning a repository and that you are already a member in (keybase) of the team in charge of that repository and you want to decrypt the secrets file there, you have to run:
 
 ```sh
 revelio
@@ -113,7 +113,8 @@ Now you have the secrets files decrypted and can run your project without hesita
 
 ### Revelio Charm flags
 
-* --force [By default, the command will skip the generated decrypted files. To regenerate it use this fla]
+* --force [By default, the command will skip the generated decrypted files. To regenerate it use this flag]
+* --paterm [the pattern of the secrets files to encrypt. default: *.env]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
