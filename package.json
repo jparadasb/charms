@@ -1,6 +1,6 @@
 {
   "name": "@jparadasb/charms",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A Small set of scripts to make some repetitive tasks easier",
   "main": "/src/index.js",
   "bin": {

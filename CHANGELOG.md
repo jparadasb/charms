@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.3](https://github.com/jparadasb/charms/compare/v1.3.2...v1.3.3) (2022-12-07)
+
+
+### Bug Fixes
+
+* a word typo ([1fe1b95](https://github.com/jparadasb/charms/commit/1fe1b95561e49b7b4cc348c3f238e15a17d0f45d))
+
 ### [1.3.2](https://github.com/jparadasb/charms/compare/v1.3.1...v1.3.2) (2022-12-07)
 
 
