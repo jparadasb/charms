@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/jparadasb/charms/compare/v1.3.3...v1.3.4) (2023-11-21)
+
+
+### Bug Fixes
+
+* infinite loop in flag retrieval ([6c3e071](https://github.com/jparadasb/charms/commit/6c3e071882e459bddba01603737b8483cad7758e))
+
 ### [1.3.3](https://github.com/jparadasb/charms/compare/v1.3.2...v1.3.3) (2022-12-07)
 
 
